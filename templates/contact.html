@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Myles Sparks</title>
+  <meta name="description" content="Contact page for Myles Sparks." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=20251007" />
+ 
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="brand">Myles Sparks</a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/contact" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="contact-intro">
+      <h1>Contact</h1>
+      <div class="contact-actions">
+        <a class="btn" href="mailto:mytspark03@gmail.com">Email Me</a>
+        <a class="btn" href="https://www.linkedin.com/in/myles-sparks" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/mytsparks" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    <section class="form-card" aria-labelledby="contact-form-heading">
+      <h2 id="contact-form-heading">Get in touch</h2>
+      <form id="contact-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" required autocomplete="given-name" />
+            <span class="error-text" id="firstNameError" role="alert" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" required autocomplete="family-name" />
+            <span class="error-text" id="lastNameError" role="alert" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" autocomplete="email" aria-describedby="emailError" />
+          <span class="error-text" id="emailError" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="reason">Reason for Contact</label>
+          <input id="reason" name="reason" type="text" required aria-describedby="reasonError" />
+          <span class="error-text" id="reasonError" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required minlength="10" rows="5" aria-describedby="messageError"></textarea>
+          <span class="error-text" id="messageError" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required minlength="8" autocomplete="new-password" aria-describedby="passwordError" />
+          <span class="error-text" id="passwordError" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm Password</label>
+          <input id="confirmPassword" name="confirmPassword" type="password" required minlength="8" autocomplete="new-password" aria-describedby="confirmPasswordError" />
+          <span class="error-text" id="confirmPasswordError" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>&copy; 2025 Myles Sparks. All rights reserved. · <a href="https://github.com/mytsparks/Sparks_Myles_Personal_Website" target="_blank" rel="noopener">GitHub</a></small>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+
+      function setError(input, message) {
+        var errorEl = document.getElementById(input.id + 'Error');
+        if (errorEl) { errorEl.textContent = message || ''; }
+        input.classList.toggle('invalid', Boolean(message));
+      }
+
+      function clearAll() {
+        ['firstName','lastName','email','password','confirmPassword'].forEach(function(id) {
+          setError(document.getElementById(id), '');
+        });
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearAll();
+        var firstName = document.getElementById('firstName');
+        var lastName = document.getElementById('lastName');
+        var email = document.getElementById('email');
+        var reason = document.getElementById('reason');
+        var message = document.getElementById('message');
+        var password = document.getElementById('password');
+        var confirmPassword = document.getElementById('confirmPassword');
+
+        var firstError = null;
+
+        if (!firstName.value.trim()) { setError(firstName, 'First name is required.'); firstError = firstError || firstName; }
+        if (!lastName.value.trim()) { setError(lastName, 'Last name is required.'); firstError = firstError || lastName; }
+
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim()) { setError(email, 'Email is required.'); firstError = firstError || email; }
+        else if (!emailPattern.test(email.value)) { setError(email, 'Enter a valid email address.'); firstError = firstError || email; }
+
+        if (!reason.value.trim()) { setError(reason, 'Reason is required.'); firstError = firstError || reason; }
+        if (!message.value.trim()) { setError(message, 'Message is required.'); firstError = firstError || message; }
+        else if (message.value.trim().length < 10) { setError(message, 'Message should be at least 10 characters.'); firstError = firstError || message; }
+
+        if (!password.value) { setError(password, 'Password is required.'); firstError = firstError || password; }
+        else if (password.value.length < 8) { setError(password, 'Password must be at least 8 characters.'); firstError = firstError || password; }
+
+        if (!confirmPassword.value) { setError(confirmPassword, 'Please confirm your password.'); firstError = firstError || confirmPassword; }
+        else if (confirmPassword.value !== password.value) { setError(confirmPassword, 'Passwords must match.'); firstError = firstError || confirmPassword; }
+
+        if (firstError) { firstError.focus(); return; }
+
+        window.location.href = '/thankyou';
+      });
+    })();
+  </script>
+</body>
+</html>

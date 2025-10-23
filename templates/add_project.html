@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Project | Myles Sparks</title>
+  <meta name="description" content="Add a new project to Myles Sparks portfolio." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=20251007" />
+ 
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="brand">Myles Sparks</a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="projects-intro">
+      <h1>Add New Project</h1>
+      <p class="lead">Add a new project to your portfolio.</p>
+    </section>
+
+    <section class="form-card" aria-labelledby="add-project-form-heading">
+      <h2 id="add-project-form-heading">Project Details</h2>
+      <form method="POST" action="/add">
+        <div class="field">
+          <label for="title">Project Title</label>
+          <input id="title" name="title" type="text" required />
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" required rows="5"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="image_file_name">Image Filename</label>
+          <input id="image_file_name" name="image_file_name" type="text" placeholder="e.g., project-screenshot.png" />
+          <small>Enter the filename of the image (must be in the static/images directory)</small>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Add Project</button>
+          <a class="btn" href="/projects">Cancel</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>&copy; 2025 Myles Sparks. All rights reserved. · <a href="https://github.com/mytsparks/Sparks_Myles_Personal_Website" target="_blank" rel="noopener">GitHub</a></small>
+    </div>
+  </footer>
+</body>
+</html>

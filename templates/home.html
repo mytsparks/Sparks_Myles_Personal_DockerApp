@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home | Myles Sparks</title>
+  <meta name="description" content="Homepage for Myles Sparks personal website." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=20251007" />
+ 
+</head>
+<body>
+  <section class="top-banner" aria-label="Kelley School of Business">
+    <img src="{{ url_for('static', filename='images/Kelley-School-of-Business.png') }}" alt="Kelley School of Business" />
+  </section>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Myles Sparks</h1>
+      <p>I'm a dedicated professional focused on building thoughtful solutions with modern, reliable tools. Explore to learn more about my background, experience, and recent work.</p>
+    </section>
+
+    <section class="quick-nav" aria-labelledby="quick-nav-heading">
+      <h2 id="quick-nav-heading" class="visually-hidden">Explore sections</h2>
+      <div class="grid">
+        <a class="card" href="/about">
+          <h3>About Me</h3>
+          <p>Who I am, what I'm working on, and what I value.</p>
+        </a>
+        <a class="card" href="/resume">
+          <h3>Resume</h3>
+          <p>Experience, education, and skills—all in one place.</p>
+        </a>
+        <a class="card" href="/projects">
+          <h3>Projects</h3>
+          <p>Selected work showcasing problem-solving and delivery.</p>
+        </a>
+        <a class="card" href="/contact">
+          <h3>Contact</h3>
+          <p>Get in touch for opportunities or collaborations.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>&copy; 2025 Myles Sparks. All rights reserved. · <a href="https://github.com/mytsparks/Sparks_Myles_Personal_Website" target="_blank" rel="noopener">GitHub</a></small>
+    </div>
+  </footer>
+</body>
+</html>

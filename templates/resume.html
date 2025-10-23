@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume | Myles Sparks</title>
+  <meta name="description" content="Resume for Myles Sparks." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=20251007" />
+ 
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="brand">Myles Sparks</a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/resume" aria-current="page">Resume</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="resume-section">
+      <h1>Resume</h1>
+      <div class="pdf-wrapper">
+        <object data="{{ url_for('static', filename='files/Sparks_Myles_Resume.pdf') }}" type="application/pdf" class="pdf-object" aria-label="Embedded resume PDF">
+          <p>Your browser can't display PDFs. You can <a href="{{ url_for('static', filename='files/Sparks_Myles_Resume.pdf') }}" download>download the resume here</a>.</p>
+        </object>
+      </div>
+      <div class="resume-actions">
+        <a class="btn btn-primary" href="{{ url_for('static', filename='files/Sparks_Myles_Resume.pdf') }}" download>Download PDF</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>&copy; 2025 Myles Sparks. All rights reserved. · <a href="https://github.com/mytsparks/Sparks_Myles_Personal_Website" target="_blank" rel="noopener">GitHub</a></small>
+    </div>
+  </footer>
+</body>
+</html>

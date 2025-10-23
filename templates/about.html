@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Myles Sparks</title>
+  <meta name="description" content="About Myles Sparks." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=20251007" />
+ 
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="brand">Myles Sparks</a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about" aria-current="page">About</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="about-intro">
+      <h1>About Me</h1>
+      <p class="lead">MSIS Graduate Student at Kelley School of Business — turning data into decisions.</p>
+    </section>
+
+    <section class="about-grid">
+      <aside class="about-photo">
+        <img src="{{ url_for('static', filename='images/Sparks-Headshot.jpg') }}" alt="Myles Sparks headshot" />
+      </aside>
+      <article class="about-content">
+        <h2 class="visually-hidden">Biography</h2>
+        <p>My goal is to make data make sense. I'm a Purdue graduate with a B.S. in Applied Statistics, a minor in Computer Science, and a certificate in Entrepreneurship and Innovation. Now I'm pursuing my M.S. in Information Systems at the Kelley School of Business, where I focus on bridging the gap between data, technology, and business strategy.</p>
+        <p>As a first‑generation college graduate, I've built my path on turning ambiguity into strategy and information into narratives. I don't just crunch numbers—I translate them into stories that drive smarter decisions.</p>
+        <p>I specialize in predictive modeling, quality control, and using AI to extract insights from unstructured data. My toolkit includes Python, SQL, R, and SAS, and I've applied these in real‑world analytics roles where collaboration and strategic thinking were key.</p>
+        <p>I'm always open to connecting with professionals passionate about analytics, innovation, and entrepreneurship—don't hesitate to reach out.</p>
+
+        <div class="about-meta">
+          <div>
+            <h3>Top Skills</h3>
+            <ul class="meta-list">
+              <li>Customer Relationship Management (CRM)</li>
+              <li>Data Visualization</li>
+              <li>Statistical Programming (Python, R, SAS)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Certifications</h3>
+            <ul class="meta-list">
+              <li>SAS Certified Specialist: Base Programming Using SAS 9.4</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <ul class="contact-list">
+              <li><a href="tel:+18126863594">+1 (812) 686‑3594</a></li>
+              <li><a href="mailto:mytspark03@gmail.com">mytspark03@gmail.com</a></li>
+              <li><a href="https://www.linkedin.com/in/myles-sparks" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>&copy; 2025 Myles Sparks. All rights reserved. · <a href="https://github.com/mytsparks/Sparks_Myles_Personal_Website" target="_blank" rel="noopener">GitHub</a></small>
+    </div>
+  </footer>
+</body>
+</html>

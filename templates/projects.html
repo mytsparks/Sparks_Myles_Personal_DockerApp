@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Myles Sparks</title>
+  <meta name="description" content="Projects by Myles Sparks." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=20251007" />
+ 
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="brand">Myles Sparks</a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="/projects" aria-current="page">Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="projects-intro">
+      <h1>Projects</h1>
+      <p class="lead">A selection of work spanning analytics, user experience, and web development.</p>
+      <div class="project-actions">
+        <a class="btn btn-primary" href="/add">Add New Project</a>
+      </div>
+    </section>
+
+    {% if projects %}
+      {% for project in projects %}
+        <section class="project-card">
+          <div class="project-header">
+            <h2>{{ project.title }}</h2>
+          </div>
+          <div class="project-body">
+            <p>{{ project.description }}</p>
+            {% if project.image_file_name %}
+              <div class="gallery">
+                <figure class="gallery-item">
+                  <img src="{{ url_for('static', filename='images/' + project.image_file_name) }}" alt="{{ project.title }} screenshot" />
+                </figure>
+              </div>
+            {% endif %}
+            <div class="project-actions">
+              <a class="btn btn-secondary" href="/delete/{{ project.id }}" onclick="return confirm('Are you sure you want to delete this project?')">Delete Project</a>
+            </div>
+          </div>
+        </section>
+      {% endfor %}
+    {% else %}
+      <section class="project-card">
+        <div class="project-header">
+          <h2>No Projects Yet</h2>
+        </div>
+        <div class="project-body">
+          <p>No projects have been added yet. <a href="/add">Add your first project</a> to get started!</p>
+        </div>
+      </section>
+    {% endif %}
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>&copy; 2025 Myles Sparks. All rights reserved. · <a href="https://github.com/mytsparks/Sparks_Myles_Personal_Website" target="_blank" rel="noopener">GitHub</a></small>
+    </div>
+  </footer>
+</body>
+</html>
